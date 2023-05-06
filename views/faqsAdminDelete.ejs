@@ -1,0 +1,49 @@
+<%- include ("./partials/headerAdmin") %>
+<main>
+    <div class="container py-5">
+        <h1>Confirm Deleting FAQs</h1>
+        <div class="accordion mt-4" id="faqAccordion">
+            <form action="/dashboard/faqsAdmin/delete/<%= faq._id %>" method="post">
+                <div class="card">
+                    <div class="card-header" id="heading1">
+                        <h2 class="mb-0">
+                            <button
+                                class="btn btn-link"
+                                type="button"
+                                data-toggle="collapse"
+                                data-target="#collapse1"
+                                aria-expanded="true"
+                                aria-controls="collapse1"
+                            >
+                            <%= faq.question %>
+                            </button>
+                        </h2>
+                    </div>
+    
+                    <div
+                        id="collapse1"
+                        class="collapse show"
+                        aria-labelledby="heading1"
+                        data-parent="#faqAccordion"
+                    >
+                        <div class="card-body">
+                            <%= faq.response %>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-4">
+                            <button class="btn btn-primary btn-block" type="submit">delete</button>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</main>
+<%- include ("./partials/footer") %>

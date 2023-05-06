@@ -1,0 +1,29 @@
+<%- include ("./partials/headerAdmin") %>
+<main>
+    <div class="container py-5">
+        <h1>Confirm deleting Term</h1>
+        <div class="accordion mt-4" id="faqAccordion">
+            <form action="/dashboard/terms-of-use-admin/delete/<%= term._id %>" method="post">
+
+                <ul class="list-group my-4">
+                    <li class="list-group-item">
+                        <%= term.rule %>
+                    </li>
+                </ul>
+
+                <br><br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-4">
+                            <button class="btn btn-primary btn-block" type="submit">delete</button>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</main>
+<%- include ("./partials/footer") %>

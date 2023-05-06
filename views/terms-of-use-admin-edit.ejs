@@ -1,0 +1,33 @@
+<%- include ("./partials/headerAdmin") %>
+<main>
+    <div class="container py-5">
+        <h1 class="text-center">Edit Term</h1>
+        <br><br>
+        <div class="accordion mt-4" id="faqAccordion">
+            <form action="/dashboard/terms-of-use-admin/edit/<%= term._id %>" method="post">
+                <ul class="list-group my-4">
+                    <li class="list-group-item">
+                        <label for="rule"> <h5> <%= term.rule %></h5> </label>
+                        <div class="form-floating">
+                            <textarea class="form-control" type="text" name="rule" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="rule"> Enter the new rule</label>
+                        </div>
+                    </li>
+                </ul>
+
+                <br><br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-4">
+                            <button class="btn btn-primary btn-block" type="submit">edit</button>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</main>
+<%- include ("./partials/footer") %>

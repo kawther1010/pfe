@@ -1,0 +1,27 @@
+<%- include ("./partials/headerAdmin") %>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <form action="/dashboard/users/profileAdmin/<%= user._id %>" method="post">
+                    <img
+                    src="<%= '/uploads/' + user.profilePicture%>"
+                    class="card-img-top"
+                    alt="Profile Picture"
+                    />
+                    <div class="card-body">
+                        <h5 class="card-title"><%= user.firstName %> <%= user.lastName %></h5>
+                        <p class="card-text"><strong>Email:</strong> <%= user.email %></p>
+                        <p class="card-text">
+                            <strong>Bio:</strong> <%= user.bio %>
+                        </p>
+                        <hr />
+                        <button class="btn btn-outline-dark">delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ("./partials/footer") %>

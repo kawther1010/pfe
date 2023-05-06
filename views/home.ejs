@@ -1,0 +1,226 @@
+<%- include ("./partials/header") %> <%- include ("./partials/messages"); %> <%
+if(isLoggedIn) { %>
+<div class="motivation-section">
+    <p>
+        With so many wonders to be uncovered, we can't wait to see what
+        treasures you'll find. <strong>Happy bidding!</strong>
+    </p>
+</div>
+<% } else { %>
+<div class="welcome-section">
+    <h2>Welcome to our world of treasures!</h2>
+    <p>
+        Here, you can discover a wealth of unique and valuable items from all
+        corners of the globe, waiting to be bought and sold in thrilling
+        auctions.
+    </p>
+    <p>
+        Ready to dive in? Just click on the
+        <strong>Get started</strong> button below to sign up and explore our
+        vast selection of treasures.
+    </p>
+    <button>
+        <a href="/auth/register" style="text-decoration: none; color: inherit"
+            >Get started</a
+        >
+    </button>
+</div>
+<% } %>
+<h1>CATEGORIES</h1>
+<div class="card-grid">
+    <div class="card">
+        <a href="/category/books">
+            <img src="/images/books.jpg" class="card-img" alt="" />
+            <div class="card-info">
+                <div class="card-text">
+                    <p class="title">BOOKS</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="card">
+        <a href="/category/electronics">
+            <img src="/images/electronics.jpg" class="card-img" alt="" />
+            <div class="card-info">
+                <div class="card-text">
+                    <p class="title">ELECTRONICS</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="card">
+        <a href="/category/fashion">
+            <img src="/images/fashion.jpg" class="card-img" alt="" />
+            <div class="card-info">
+                <div class="card-text">
+                    <p class="title">FASHION</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="card">
+        <a href="/category/games">
+            <img src="/images/games.jpg" class="card-img" alt="" />
+            <div class="card-info">
+                <div class="card-text">
+                    <p class="title">GAMES</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="card">
+        <a href="/category/music">
+            <img src="/images/music.jpg" class="card-img" alt="" />
+            <div class="card-info">
+                <div class="card-text">
+                    <p class="title">MUSIC</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="card">
+        <a href="/category/sports">
+            <img src="/images/sports.jpg" class="card-img" alt="" />
+            <div class="card-info">
+                <div class="card-text">
+                    <p class="title">SPORTS</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="card">
+        <a href="/category/other" class="card">
+            <img src="/images/other.jpg" class="card-img" alt="" />
+            <div class="card-info">
+                <div class="card-text">
+                    <p class="title">OTHER</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<%- include ("./partials/footer") %>
+<br />
+<br />
+<br />
+<br />
+
+<style>
+    .motivation-section {
+        background-color: #f5f5f5;
+    }
+
+    .motivation-section p {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .welcome-section {
+        background-color: #f5f5f5;
+        padding: 50px;
+        text-align: center;
+    }
+
+    .welcome-section h2 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .welcome-section p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 30px;
+    }
+
+    .welcome-section button {
+        background-color: #aaaaaa;
+        border: none;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .welcome-section button:hover {
+        background-color: #5ca07e;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-size: 36px;
+        font-weight: bold;
+    }
+
+    .card {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background: #f5f5f5;
+        transition: box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card-img {
+        height: 100%;
+        width: 100%;
+        background-color: #6eee87;
+    }
+
+    .card-text {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 1rem;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .title {
+        color: white;
+        font-weight: 900;
+        font-size: 18px;
+    }
+
+    .card:hover {
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.8);
+        cursor: pointer;
+    }
+
+    .card:last-child {
+        grid-row: 1 / span 2;
+        grid-column: 4;
+    }
+
+    .card-grid {
+        width: 90%;
+        max-height: 600px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr) minmax(200px, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 3px;
+        align-items: start;
+        margin: auto;
+    }
+</style>

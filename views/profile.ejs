@@ -1,0 +1,37 @@
+<%- include ("./partials/header") %>
+<div class="container mt-5">
+    <h1>Profile</h1>
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="text-center position-relative d-flex justify-content-end" style="margin-right: 70px;" >
+                <div class="rounded-circle overflow-hidden" style="width: 200px; height: 200px;">
+                    <img
+                        src="<%= '/uploads/' + user.profilePicture%>"
+                        alt="Profile Picture"
+                        class="w-100 h-100"
+                    />
+                </div>
+                <form action="/users/upload-profile-picture" method="POST" enctype="multipart/form-data" class="position-absolute bottom-0 end-0;">
+                    <label class="btn btn-primary" >
+                        <i class="fas fa-upload"></i>
+                        <input type="file" name="profilePicture" id="profilePicture" accept="image/*" onchange="this.form.submit()" style="display: none;">
+                    </label>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h3><%= user.firstName %> <%= user.lastName %></h3>
+            <p><strong>Email:</strong> <%= user.email %></p>
+            <p><strong>Bio:</strong>
+            <div class="border p-3">
+                <%= user.bio %>
+            </div>
+            </p>
+            <a href="/users/account-settings" class="btn btn-primary"
+                >Account Settings</a
+            >
+        </div>
+    </div>
+    
+</div>
+<%- include ("./partials/footer") %>

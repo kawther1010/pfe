@@ -1,0 +1,37 @@
+<%- include ("./partials/header") %>
+
+<main class="container my-5">
+    <h1>Terms of Use</h1>
+    <p>
+        Welcome to our website. If you continue to browse and use this website,
+        you are agreeing to comply with and be bound by the following terms and
+        conditions of use, which together with our privacy policy govern
+        VintageSale's relationship with you in relation to this website. If you
+        disagree with any part of these terms and conditions, please do not use
+        our website.
+    </p>
+
+    <div class="card my-4">
+        <div class="card-body">
+            <h3 class="card-title">
+                The content of the pages of this website is for your general
+                information and use only. It is subject to change without
+                notice.
+            </h3>
+        </div>
+    </div>
+
+    <% if (terms && terms.length > 0) { %>
+        <ul class="list-group my-4">
+            <% terms.forEach((term) => { %>
+            <li class="list-group-item">
+                <%= term.rule %>
+            </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <h1 class="category-title">Term of use empty</h1>
+    <% } %>
+</main>
+
+<%- include ("./partials/footer") %>

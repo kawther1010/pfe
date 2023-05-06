@@ -1,0 +1,39 @@
+<%- include ("./partials/headerAdmin") %>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <form action="/dashboard/objects/buyAdmin/<%= object._id %>" method="post">
+                    <h1 class="category-title">Category: <%= object.category %></h1> <br>
+                    <img
+                    src="/uploads/<%= object.image %>"
+                    class="card-img-top"
+                    alt="<%= object.title %>"
+                    />
+                    <div class="card-body">
+                        <h5 class="card-title"><%= object.title %></h5>
+                        <p class="card-text"><%= object.description %></p>
+                        <p class="card-text">
+                            <strong>Starting Price:</strong> <%= object.startingPrice %> DZD
+                        </p>
+                        <p class="card-text">
+                            <% if (object.currentPrice === null) { %>
+                            <strong>Current Price (Highest Bid):</strong> No bids
+                                yet <% } else { %><strong
+                                >Current Price (Highest Bid):</strong>
+                            <%= object.currentPrice %> DZD <% } %>
+                        </p>
+                        <p class="card-text">
+                            <strong>Auction End Date:</strong> <%=
+                            object.endDate.toLocaleString() %>
+                        </p>
+                        <hr />
+                        <button class="btn btn-outline-dark">delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ("./partials/footer") %>

@@ -1,0 +1,69 @@
+<%- include ("./partials/headerAdmin") %>
+
+<div class="container my-5">
+    <div>
+        <form action="/dashboard/privacy-policy-admin" method="post">
+            <div>
+                <div class="form-group">
+                    <label for="privacyPolicy"><h1>Privacy Policy</h1></label>
+                    <div class="form-floating">
+                        <textarea class="form-control" type="text" name="privacyPolicy" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2"><%= privacy.privacyPolicy %></label>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label for="informationWeCollect"><h2>Information We Collect</h2></label>
+                    <p>
+                        We may collect various types of personal information from you when you
+                        use our website and services. This information may include:
+                    </p>
+                    <div class="form-floating">
+                        <textarea class="form-control" type="text" name="informationWeCollect" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2"><%= privacy.informationWeCollect %></label>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="howWeUseYourInformation"><h2>How We Use Your Information</h2></label>
+                    <p>We may use your personal information for various purposes, including:</p>
+                    <div class="form-floating">
+                        <textarea class="form-control" type="text" name="howWeUseYourInformation" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2"><%= privacy.howWeUseYourInformation %></label>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label for="sharingYourInformation"><h2>Sharing Your Information</h2></label>
+                    <div class="form-floating">
+                        <textarea class="form-control" type="text" name="sharingYourInformation" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2"><%= privacy.sharingYourInformation %></label>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label for="yourChoices"><h2>Your Choices</h2></label>
+                    <div class="form-floating">
+                        <textarea class="form-control" type="text" name="yourChoices" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2"><%= privacy.yourChoices %></label>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="changeToThisPolicy"><h2>Changes to this Policy</h2></label>
+                    <div class="form-floating">
+                        <textarea class="form-control" type="text" name="changeToThisPolicy" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2"><%= privacy.changeToThisPolicy %></label>
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br>
+            <button type="submit" class="btn btn-primary btn-block">submit</button>
+        </form>
+    </div>
+    
+</div>
+
+<%- include ("./partials/footer") %>

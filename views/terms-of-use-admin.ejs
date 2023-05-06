@@ -1,0 +1,69 @@
+<%- include ("./partials/headerAdmin") %>
+<main class="container my-5">
+    <h1>Add some terms of use</h1>
+        <div>
+            <form action="/dashboard/terms-of-use-admin" method="post">
+                <div class="form-group">
+                    <label for="question">rule</label>
+                    <input
+                        type="text"
+                        id="rule"
+                        name="rule"
+                        class="form-control"
+                        placeholder="Enter the rule"
+                        autocomplete="off"
+                    />
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary btn-block">
+                    submit
+                </button>
+            </form>
+        </div>
+
+        <br><br>
+    <h1>Terms of Use</h1>
+    <p>
+        Welcome to our website. If you continue to browse and use this website,
+        you are agreeing to comply with and be bound by the following terms and
+        conditions of use, which together with our privacy policy govern
+        VintageSale's relationship with you in relation to this website. If you
+        disagree with any part of these terms and conditions, please do not use
+        our website.
+    </p>
+
+    <div class="card my-4">
+        <div class="card-body">
+            <h3 class="card-title">
+                The content of the pages of this website is for your general
+                information and use only. It is subject to change without
+                notice.
+            </h3>
+        </div>
+    </div>
+
+    <% if (terms && terms.length > 0) { %>
+    <ul class="list-group my-4">
+        <% terms.forEach((term) => { %>
+        <li class="list-group-item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <%= term.rule %>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn"><a class="btn btn-primary btn-block" href="/dashboard/terms-of-use-admin/edit/<%= term._id %>">edit</a></button>
+                        <button class="btn"><a class="btn btn-primary btn-block" href="/dashboard/terms-of-use-admin/delete/<%= term._id %>">delete</a></button>
+                    </div>
+                </div>
+            </div>
+            
+        </li>
+        <% }); %>
+    </ul>
+    <% } else { %>
+        <h1 class="category-title">Term of use empty</h1>
+    <% } %>
+</main>
+
+<%- include ("./partials/footer") %>

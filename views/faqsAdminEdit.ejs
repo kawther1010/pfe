@@ -1,0 +1,60 @@
+<%- include ("./partials/headerAdmin") %>
+<main>
+    <div class="container py-5">
+        <h1 class="text-center">Edit FAQs</h1>
+        <div class="accordion mt-4" id="faqAccordion">
+            <form action="/dashboard/faqsAdmin/edit/<%= faq._id %>" method="post">
+                
+                <div class="card">
+                    <div class="card-header" id="heading1">
+                        <div class="form-group">
+                            <label for="question">
+                                <button
+                                class="btn btn-link"
+                                type="button"
+                                data-toggle="collapse"
+                                data-target="#collapse1"
+                                aria-expanded="true"
+                                aria-controls="collapse1"
+                                >
+                                    <%= faq.question %>
+                                </button>
+                            </label>
+                            <div class="form-floating">
+                                <textarea class="form-control" type="text" name="question" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                <label for="question"> Enter the new question</label>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div
+                        id="collapse1"
+                        class="collapse show"
+                        aria-labelledby="heading1"
+                        data-parent="#faqAccordion"
+                    >
+                        <div class="card-body">
+                            <label for="response"> <%= faq.response %> </label>
+                            <div class="form-floating">
+                                <textarea class="form-control" type="text" name="response" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                <label for="response"> Enter the new response</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-4">
+                            <button class="btn btn-primary btn-block" type="submit">edit</button>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</main>
+<%- include ("./partials/footer") %>

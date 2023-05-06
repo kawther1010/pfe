@@ -1,0 +1,81 @@
+<%- include ("./partials/header") %>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <img
+                    src="/uploads/<%= object.image %>"
+                    class="card-img-top"
+                    alt="<%= object.title %>"
+                />
+                <div class="card-body">
+                    <h5 class="card-title"><%= object.title %></h5>
+                    <p class="card-text"><%= object.description %></p>
+                    <p class="card-text">
+                        <strong>Starting Price:</strong> <%=
+                        object.startingPrice %> DZD
+                    </p>
+                    <p class="card-text">
+                        <% if (object.currentPrice === null) { %>
+                        <strong>Current Price (Highest Bid):</strong> No bids
+                        yet <% } else { %><strong
+                            >Current Price (Highest Bid):</strong
+                        >
+                        <%= object.currentPrice %> DZD <% } %>
+                    </p>
+                    <p class="card-text">
+                        <strong>Auction End Date:</strong> <%=
+                        object.endDate.toLocaleString() %>
+                    </p>
+
+                    <hr />
+
+                    <% if (object.sold) { %>
+                    <p class="card-text text-danger">
+                        <strong>This item has been sold!</strong>
+                    </p>
+                    <% } else if (currentUser && object.seller._id.toString()
+                    !== currentUser._id.toString() && object.endDate > new
+                    Date()) { %>
+                    <h6 class="mb-3">Place Your Bid</h6>
+                    <form method="POST" action="/users/bids/<%= object._id %>">
+                        <div class="form-group">
+                            <label for="bidAmount"
+                                >Your Bid Amount (in DZD)</label
+                            >
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="bidAmount"
+                                name="bidAmount"
+                                min="<%= object.currentPrice ? object.currentPrice + 1 : object.startingPrice %>"
+                                required
+                            />
+                        </div>
+                        <br />
+                        <button type="submit" class="btn btn-primary">
+                            Submit Bid
+                        </button>
+                    </form>
+                    <% } %> <% if (!currentUser) { %>
+                    <p class="card-text">
+                        Please <a href="/login">login</a> to place your bid.
+                    </p>
+                    <% } else if (object.seller._id.toString() ===
+                    currentUser._id.toString()) { %>
+                    <p class="card-text text-danger">
+                        <strong>You cannot bid on your own item!</strong>
+                    </p>
+                    <% } else if (object.endDate <= new Date()) { %>
+                    <p class="card-text text-danger">
+                        <strong>This auction has ended!</strong>
+                    </p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ("./partials/footer") %>

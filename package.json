@@ -1,0 +1,36 @@
+{
+  "name": "vintagesalev2.0",
+  "version": "1.0.0",
+  "description": "## *npm* initialization",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spiritcruusher/vintagesaleV2.0.git"
+  },
+  "author": "kawther1010",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spiritcruusher/vintagesaleV2.0/issues"
+  },
+  "homepage": "https://github.com/spiritcruusher/vintagesaleV2.0#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "mongoose": "^7.0.5",
+    "multer": "^1.4.5-lts.1",
+    "node-cron": "^3.0.2",
+    "nodemailer": "^6.9.1",
+    "nodemon": "^2.0.22",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0"
+  }
+}

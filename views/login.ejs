@@ -1,0 +1,52 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body">
+            <h1 class="text-center mb-3">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </h1>
+            <%- include ("./partials/messages"); %>
+            <form action="/auth/login" method="POST">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-control"
+                        placeholder="Enter Email"
+                        autocomplete="off"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="form-control"
+                        placeholder="Enter Password"
+                    />
+                </div>
+                <div class="form-group">
+                    <a href="/auth/forgot-password">Forgot Password?</a>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary btn-block">
+                    Login
+                </button>
+            </form>
+            <div class="mt-4">
+                <hr />
+                <p class="text-center">Or continue with:</p>
+                <div class="d-flex justify-content-center">
+                    <a href="/auth/google" class="btn btn-danger">
+                        <i class="fab fa-google mr-2"></i> Google
+                    </a>
+                </div>
+            </div>
+            <p class="lead mt-4">
+                No Account? <a href="/auth/register">Register</a>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<%- include ("./partials/header") %>
+<main>
+    <div class="container py-5">
+        <h1>Frequently Asked Questions</h1>
+
+        <% if (faqs && faqs.length > 0) { %>
+        <div class="accordion mt-4" id="faqAccordion">
+            <% faqs.forEach((faq) => { %>
+            <!-- FAQ section 1 -->
+            <div class="card">
+                <div class="card-header" id="heading1">
+                    <h2 class="mb-0">
+                        <button
+                            class="btn btn-link"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target="#collapse1"
+                            aria-expanded="true"
+                            aria-controls="collapse1"
+                        >
+                        <%= faq.question %>
+                        </button>
+                    </h2>
+                </div>
+
+                <div
+                    id="collapse1"
+                    class="collapse show"
+                    aria-labelledby="heading1"
+                    data-parent="#faqAccordion"
+                >
+                    <div class="card-body">
+                        <%= faq.response %>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+        <% } else { %>
+            <h1 class="category-title">FAQs empty</h1>
+        <% } %>
+        
+    </div>
+</main>
+<%- include ("./partials/footer") %>

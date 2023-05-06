@@ -1,0 +1,106 @@
+<%- include ("./partials/header") %>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card mt-4">
+            <div class="card-header"><strong>Sell an Object</strong></div>
+            <div class="card-body">
+                <%- include ("./partials/messages"); %>
+                <form
+                    method="POST"
+                    action="/users/sell"
+                    enctype="multipart/form-data"
+                >
+                    <div class="form-group">
+                        <label for="title"><strong>Title:</strong></label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="title"
+                            name="title"
+                            value="<%= typeof title != 'undefined' ? title : '' %>"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="description"
+                            ><strong>Description:</strong></label
+                        >
+                        <textarea
+                            class="form-control"
+                            id="description"
+                            name="description"
+                            rows="5"
+                            value="<%= typeof description != 'undefined' ? description : '' %>"
+                            required
+                        ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="category"><strong>Category:</strong></label>
+                        <select
+                            class="form-control"
+                            id="category"
+                            name="category"
+                            value="<%= typeof category != 'undefined' ? category : '' %>"
+                        >
+                            <option value="books">Books</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="fashion">Fashion</option>
+                            <option value="games">Games</option>
+                            <option value="sports">Sports</option>
+                            <option value="music">Music</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="endDate"><strong>End Date:</strong></label>
+                        <input
+                            type="datetime-local"
+                            class="form-control"
+                            id="endDate"
+                            name="endDate"
+                            value="<%= typeof endDate != 'undefined' ? endDate : '' %>"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="startingPrice"
+                            ><strong>Starting Price (AD):</strong></label
+                        >
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="startingPrice"
+                            name="startingPrice"
+                            value="<%= typeof startingPrice != 'undefined' ? startingPrice : '' %>"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <label for="image" class="form-label"
+                                ><strong>Image:</strong></label
+                            >
+                            <input
+                                type="file"
+                                class="form-control"
+                                id="image"
+                                name="image"
+                                accept="image/*"
+                            />
+                            <div
+                                id="image-preview"
+                                class="form-control d-flex justify-content-center align-items-center"
+                            ></div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Sell Object
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include ("./partials/footer") %>
+
+<script src="/javascripts/imagePreview.js" defer></script>
